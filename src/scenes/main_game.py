@@ -12,23 +12,23 @@ class MainGame:
                 self.game.running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    # Volta para o menu principal
+                    # Return to the main menu
                     from scenes.main_menu import MainMenu
                     self.game.current_scene = MainMenu(self.game)
     
     def update(self, dt):
-        # Aqui vai a lógica principal do jogo
+        # Main game logic goes here
         pass
     
     def render(self):
-        # Tela temporária do jogo
+        # Temporary game screen
         self.screen.fill((50, 120, 80))
         
-        # Texto indicativo
-        fonte = pygame.font.Font(None, 48)
-        texto = fonte.render("Jogo Principal - ESC para voltar", True, (255, 255, 255))
-        texto_rect = texto.get_rect(center=(self.game.config.screen_width // 2, 
+        # Informational text
+        font = pygame.font.Font(None, 48)
+        text = font.render("Jogo - Esc para sair", True, (255, 255, 255))
+        text_rect = text.get_rect(center=(self.game.config.screen_width // 2, 
                                           self.game.config.screen_height // 2))
-        self.screen.blit(texto, texto_rect)
+        self.screen.blit(text, text_rect)
         
         pygame.display.flip()

@@ -11,15 +11,15 @@ class Game:
         self.clock = pygame.time.Clock()
         self.running = True
         
-        # Sistema de cenas - começa no menu principal
+        # Scene system - start at the main menu
         self.current_scene = MainMenu(self)
     
     def run(self):
         while self.running:
-            # Calcula delta time para animações suaves
+            # Calculate delta time for smooth animations
             dt = self.clock.tick(self.config.fps) / 1000.0
             
-            # Processa cena atual
+            # Process current scene
             self.current_scene.handle_events()
             self.current_scene.update(dt)
             self.current_scene.render()
